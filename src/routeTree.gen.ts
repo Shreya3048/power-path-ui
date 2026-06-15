@@ -9,38 +9,204 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as JourneyRouteImport } from './routes/journey'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SupportIndexRouteImport } from './routes/support.index'
+import { Route as SupportNewRouteImport } from './routes/support.new'
 
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JourneyRoute = JourneyRouteImport.update({
+  id: '/journey',
+  path: '/journey',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportIndexRoute = SupportIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SupportRoute,
+} as any)
+const SupportNewRoute = SupportNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => SupportRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/documents': typeof DocumentsRoute
+  '/home': typeof HomeRoute
+  '/journey': typeof JourneyRoute
+  '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
+  '/support': typeof SupportRouteWithChildren
+  '/support/new': typeof SupportNewRoute
+  '/support/': typeof SupportIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/documents': typeof DocumentsRoute
+  '/home': typeof HomeRoute
+  '/journey': typeof JourneyRoute
+  '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
+  '/support/new': typeof SupportNewRoute
+  '/support': typeof SupportIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/documents': typeof DocumentsRoute
+  '/home': typeof HomeRoute
+  '/journey': typeof JourneyRoute
+  '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
+  '/support': typeof SupportRouteWithChildren
+  '/support/new': typeof SupportNewRoute
+  '/support/': typeof SupportIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/documents'
+    | '/home'
+    | '/journey'
+    | '/login'
+    | '/profile'
+    | '/signup'
+    | '/support'
+    | '/support/new'
+    | '/support/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/documents'
+    | '/home'
+    | '/journey'
+    | '/login'
+    | '/profile'
+    | '/signup'
+    | '/support/new'
+    | '/support'
+  id:
+    | '__root__'
+    | '/'
+    | '/documents'
+    | '/home'
+    | '/journey'
+    | '/login'
+    | '/profile'
+    | '/signup'
+    | '/support'
+    | '/support/new'
+    | '/support/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DocumentsRoute: typeof DocumentsRoute
+  HomeRoute: typeof HomeRoute
+  JourneyRoute: typeof JourneyRoute
+  LoginRoute: typeof LoginRoute
+  ProfileRoute: typeof ProfileRoute
+  SignupRoute: typeof SignupRoute
+  SupportRoute: typeof SupportRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journey': {
+      id: '/journey'
+      path: '/journey'
+      fullPath: '/journey'
+      preLoaderRoute: typeof JourneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +214,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/': {
+      id: '/support/'
+      path: '/'
+      fullPath: '/support/'
+      preLoaderRoute: typeof SupportIndexRouteImport
+      parentRoute: typeof SupportRoute
+    }
+    '/support/new': {
+      id: '/support/new'
+      path: '/new'
+      fullPath: '/support/new'
+      preLoaderRoute: typeof SupportNewRouteImport
+      parentRoute: typeof SupportRoute
+    }
   }
 }
 
+interface SupportRouteChildren {
+  SupportNewRoute: typeof SupportNewRoute
+  SupportIndexRoute: typeof SupportIndexRoute
+}
+
+const SupportRouteChildren: SupportRouteChildren = {
+  SupportNewRoute: SupportNewRoute,
+  SupportIndexRoute: SupportIndexRoute,
+}
+
+const SupportRouteWithChildren =
+  SupportRoute._addFileChildren(SupportRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DocumentsRoute: DocumentsRoute,
+  HomeRoute: HomeRoute,
+  JourneyRoute: JourneyRoute,
+  LoginRoute: LoginRoute,
+  ProfileRoute: ProfileRoute,
+  SignupRoute: SignupRoute,
+  SupportRoute: SupportRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
