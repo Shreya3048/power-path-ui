@@ -4,7 +4,7 @@ import { BottomNav } from "@/components/BottomNav";
 import { Check, Sun, Clock } from "lucide-react";
 
 export const Route = createFileRoute("/journey")({
-  head: () => ({ meta: [{ title: "My Journey — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "My Journey — Elgris Solar" }] }),
   component: JourneyPage,
 });
 

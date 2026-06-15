@@ -6,8 +6,8 @@ import { SunIcon } from "@/components/SunIcon";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SolarTrack — Your solar journey" },
-      { name: "description", content: "Track your solar journey, one step at a time with HearWave Solar." },
+      { title: "Elgris Solar — Your solar journey" },
+      { name: "description", content: "Track your solar journey, one step at a time with Elgris Solar." },
     ],
   }),
   component: Splash,
@@ -28,14 +28,14 @@ function Splash() {
           <SunIcon size={140} />
 
           <h1 className="mt-10 text-[34px] leading-none font-extrabold tracking-tight">
-            Solar<span className="text-amber-solar">Track</span>
+            Elgris<span className="text-amber-solar"> Solar</span>
           </h1>
           <p className="mt-3 text-[14px] text-text-muted max-w-[260px]">
             Your solar journey, one step at a time.
           </p>
 
           <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-text-muted/80">
-            by HearWave Solar
+            by Elgris Solar
           </p>
         </div>
 

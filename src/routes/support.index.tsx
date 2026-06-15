@@ -5,7 +5,7 @@ import { SlidersHorizontal, Plus, Zap, Wrench, FileText, CreditCard, Calendar, M
 import { useState } from "react";
 
 export const Route = createFileRoute("/support/")({
-  head: () => ({ meta: [{ title: "My Requests — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "My Requests — Elgris Solar" }] }),
   component: TicketsPage,
 });
 

@@ -4,7 +4,7 @@ import { BottomNav } from "@/components/BottomNav";
 import { FolderClosed, FileText, Download } from "lucide-react";
 
 export const Route = createFileRoute("/documents")({
-  head: () => ({ meta: [{ title: "Documents — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "Documents — Elgris Solar" }] }),
   component: DocsPage,
 });
 

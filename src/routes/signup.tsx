@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { PhoneFrame } from "@/components/PhoneFrame";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Create account — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "Create account — Elgris Solar" }] }),
   component: SignupPage,
 });
 

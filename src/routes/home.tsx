@@ -6,7 +6,7 @@ import { PhoneFrame } from "@/components/PhoneFrame";
 import { BottomNav } from "@/components/BottomNav";
 
 export const Route = createFileRoute("/home")({
-  head: () => ({ meta: [{ title: "Dashboard — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — Elgris Solar" }] }),
   component: HomePage,
 });
 

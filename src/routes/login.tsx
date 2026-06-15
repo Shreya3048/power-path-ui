@@ -5,7 +5,7 @@ import { PhoneFrame } from "@/components/PhoneFrame";
 import { SunIcon } from "@/components/SunIcon";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Sign in — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "Sign in — Elgris Solar" }] }),
   component: LoginPage,
 });
 

@@ -4,7 +4,7 @@ import { BottomNav } from "@/components/BottomNav";
 import { Pencil, Camera, LogOut, ChevronRight, MapPin, Mail, Phone, User as UserIcon } from "lucide-react";
 
 export const Route = createFileRoute("/profile")({
-  head: () => ({ meta: [{ title: "My Profile — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "My Profile — Elgris Solar" }] }),
   component: ProfilePage,
 });
 

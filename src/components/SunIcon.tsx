@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/elgris-logo.png.asset.json";
+import elgrisLogo from "@/assets/elgris-logo.png";
 
 export function SunIcon({ size = 96, glow = true }: { size?: number; glow?: boolean }) {
   return (
@@ -7,9 +7,9 @@ export function SunIcon({ size = 96, glow = true }: { size?: number; glow?: bool
       style={{ height: size, maxWidth: size * 2.6 }}
     >
       <img
-        src={logoAsset.url}
-        alt="Elgris Solar Power Systems"
-        className="h-full w-auto object-contain"
+        src={elgrisLogo}
+        alt="Elgris Solar"
+        className="w-full h-full object-contain"
       />
     </div>
   );

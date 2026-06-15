@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Check, ChevronDown, UploadCloud, X } from "lucid
 import { useState } from "react";
 
 export const Route = createFileRoute("/support/new")({
-  head: () => ({ meta: [{ title: "Raise a Request — SolarTrack" }] }),
+  head: () => ({ meta: [{ title: "Raise a Request — Elgris Solar" }] }),
   component: NewTicketPage,
 });
 
