@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VerifyOtpRouteImport } from './routes/verify-otp'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ProfileRouteImport } from './routes/profile'
@@ -20,6 +21,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SupportIndexRouteImport } from './routes/support.index'
 import { Route as SupportNewRouteImport } from './routes/support.new'
 
+const VerifyOtpRoute = VerifyOtpRouteImport.update({
+  id: '/verify-otp',
+  path: '/verify-otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportRoute = SupportRouteImport.update({
   id: '/support',
   path: '/support',
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
   '/support': typeof SupportRouteWithChildren
+  '/verify-otp': typeof VerifyOtpRoute
   '/support/new': typeof SupportNewRoute
   '/support/': typeof SupportIndexRoute
 }
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
+  '/verify-otp': typeof VerifyOtpRoute
   '/support/new': typeof SupportNewRoute
   '/support': typeof SupportIndexRoute
 }
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
   '/support': typeof SupportRouteWithChildren
+  '/verify-otp': typeof VerifyOtpRoute
   '/support/new': typeof SupportNewRoute
   '/support/': typeof SupportIndexRoute
 }
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/signup'
     | '/support'
+    | '/verify-otp'
     | '/support/new'
     | '/support/'
   fileRoutesByTo: FileRoutesByTo
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/signup'
+    | '/verify-otp'
     | '/support/new'
     | '/support'
   id:
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/signup'
     | '/support'
+    | '/verify-otp'
     | '/support/new'
     | '/support/'
   fileRoutesById: FileRoutesById
@@ -154,10 +166,18 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   SignupRoute: typeof SignupRoute
   SupportRoute: typeof SupportRouteWithChildren
+  VerifyOtpRoute: typeof VerifyOtpRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/verify-otp': {
+      id: '/verify-otp'
+      path: '/verify-otp'
+      fullPath: '/verify-otp'
+      preLoaderRoute: typeof VerifyOtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support': {
       id: '/support'
       path: '/support'
@@ -253,6 +273,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   SignupRoute: SignupRoute,
   SupportRoute: SupportRouteWithChildren,
+  VerifyOtpRoute: VerifyOtpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
